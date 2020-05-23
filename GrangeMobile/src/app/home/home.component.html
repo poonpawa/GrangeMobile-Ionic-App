@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Home Page
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,8 +16,37 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-content>
+    <div id="container">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <ion-title id="appTitle"><strong> Welcome to</strong></ion-title>
+            <img src="../../assets/tudublin.png" width="270" height="100"><br>
+
+
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>University Achievements</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+                  <ion-slide *ngFor="let imglink of sliderOne.slidesItems">
+                    <img src={{imglink}}>
+                    <!-- <span class="slide-text">Slide id {{s.id}}</span>
+ -->
+                  </ion-slide>
+                </ion-slides>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-content>
 </ion-content>

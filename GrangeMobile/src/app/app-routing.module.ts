@@ -3,13 +3,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { ModulesComponent } from './modules/modules.component';
+import { CampusesComponent } from './campuses/campuses.component';
 
 const routes: Routes = [
   {
     path: 'app',
     component: NavComponent
-  }
-  ,
+  },
   {
     path: 'home',
     component: HomeComponent
@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'modules',
     component: ModulesComponent
+  },
+  {
+    path: 'campuses',
+    component: CampusesComponent
   },
   {
     path: '',

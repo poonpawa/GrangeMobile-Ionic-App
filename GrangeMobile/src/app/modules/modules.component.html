@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Modules Page
+      Modules
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,12 +12,27 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Modules</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Modules</strong>
+    <ion-card *ngFor="let module of modules">
+      <ion-card-header>
+        <!-- <img src="" alt=""> -->
+        <ion-card-title>{{module.moduleName}}</ion-card-title>
+        <ion-card-subtitle>Module No: {{module.moduleNo}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <strong>Credits:</strong> {{module.credits}} <br>
+        <strong>Due Date:</strong> {{module.dueDate}} <br>
+        <strong>Location:</strong> {{module.room}} {{module.location}} <br>
+        <strong>Website:</strong> {{module.website}} <br>
+
+        <ion-button size="small" strong="true" color="tertiary">Enroll Now</ion-button>
+      </ion-card-content>
+    </ion-card>
 
   </div>
 </ion-content>

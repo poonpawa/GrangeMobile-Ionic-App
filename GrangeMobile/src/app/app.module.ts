@@ -10,16 +10,21 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { ModulesComponent } from './modules/modules.component';
+import { CampusesComponent } from './campuses/campuses.component';
+import { DataService } from './services/data.service';
+import { FlickrService } from './services/flickr.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavComponent,
-    ModulesComponent
+    ModulesComponent,
+    CampusesComponent
   ],
   entryComponents: [],
   imports: [
@@ -29,10 +34,13 @@ import { ModulesComponent } from './modules/modules.component';
     CommonModule,
     FormsModule,
     IonicModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    DataService,
+    FlickrService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
