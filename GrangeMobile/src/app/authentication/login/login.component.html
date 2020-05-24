@@ -1,0 +1,29 @@
+<ion-app>
+  <ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+      <ion-title>GrangeMobile</ion-title>
+      <p>Login to continue</p>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen>
+    <div id="loginForm">
+      <form [formGroup]="loginForm">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="Password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-label class="error">{{ errorMessage }}</ion-label>
+        <ion-item lines="none" slot="center">
+          <ion-button size="md" id="loginBtn" type="submit" (click)="login(loginForm.value)">Login</ion-button>
+        </ion-item>
+      </form>
+    </div>
+
+    <div id="linkText">New user? <a routerLink="../register">Sign-Up Here</a></div>
+
+  </ion-content>
+</ion-app>

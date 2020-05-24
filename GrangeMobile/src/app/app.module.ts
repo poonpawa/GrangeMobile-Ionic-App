@@ -9,8 +9,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { environment } from "../environments/environment";
+
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { ModulesComponent } from './modules/modules.component';
@@ -18,6 +23,9 @@ import { CampusesComponent } from './campuses/campuses.component';
 import { DataService } from './services/data.service';
 import { FlickrService } from './services/flickr.service';
 import { GoogleMapsComponent } from './campuses/google-maps/google-maps.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { RegisterComponent } from './authentication/register/register.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +34,9 @@ import { GoogleMapsComponent } from './campuses/google-maps/google-maps.componen
     NavComponent,
     ModulesComponent,
     CampusesComponent,
-    GoogleMapsComponent
+    GoogleMapsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   entryComponents: [],
   imports: [
@@ -35,14 +45,19 @@ import { GoogleMapsComponent } from './campuses/google-maps/google-maps.componen
     AppRoutingModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule // imports firebase/auth, only needed for auth features]
   ],
   providers: [
     StatusBar,
     SplashScreen,
     DataService,
     FlickrService,
+    AuthService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

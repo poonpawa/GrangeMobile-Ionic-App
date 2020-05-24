@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { authService, AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,8 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private menu: MenuController, private router: Router) {
-
+  constructor(private menu: MenuController, private router: Router, private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -19,6 +19,21 @@ export class NavComponent implements OnInit {
   openPage(pageUrl) {
     this.menu.close();
     this.router.navigateByUrl(pageUrl);
+  }
+
+  logout() {
+    this.authService.doLogout().then(
+      (success) => {
+        this.menu.close();
+        console.log('successfully logged out');
+        this.router.navigate(['./login']);
+      },
+      (error) => {
+        this.menu.close();
+        console.log('cannot log user out');
+
+      }
+    )
   }
 
 }

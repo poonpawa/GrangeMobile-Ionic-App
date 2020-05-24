@@ -1,0 +1,39 @@
+<ion-app>
+  <ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+      <ion-title>GrangeMobile</ion-title>
+      <p>Register below</p>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen>
+    <div id="loginForm">
+      <form [formGroup]="registerForm">
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input formControlName="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Confirm Password</ion-label>
+          <ion-input type="Password" formControlName="confirmpassword"></ion-input>
+        </ion-item>
+        <ion-label class="error">{{ errorMessage }}</ion-label>
+        <ion-label class="success">{{ successMessage }}</ion-label>
+        <ion-item lines="none" slot="center">
+          <ion-button size="md" id="loginBtn" type="submit" (click)="register(registerForm.value)">SignUp</ion-button>
+
+        </ion-item>
+      </form>
+    </div>
+
+    <div id="linkText">Already a member? <a routerLink="../login">Login</a></div>
+
+  </ion-content>
+</ion-app>

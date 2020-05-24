@@ -1,32 +1,42 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { NavComponent } from './nav/nav.component';
 import { ModulesComponent } from './modules/modules.component';
 import { CampusesComponent } from './campuses/campuses.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { RegisterComponent } from './authentication/register/register.component';
 
 const routes: Routes = [
   {
-    path: 'app',
-    component: NavComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'modules',
-    component: ModulesComponent
-  },
-  {
-    path: 'campuses',
-    component: CampusesComponent
-  },
-  {
     path: '',
-    redirectTo: 'modules',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'app',
+    children: [
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'modules',
+        component: ModulesComponent
+      },
+      {
+        path: 'campuses',
+        component: CampusesComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({
