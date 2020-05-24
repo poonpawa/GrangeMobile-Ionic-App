@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { GoogleMapsComponent } from './google-maps/google-maps.component';
+
 
 @Component({
   selector: 'app-campuses',

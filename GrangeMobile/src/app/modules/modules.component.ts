@@ -9,9 +9,10 @@ import { DataService } from '../services/data.service';
 })
 export class ModulesComponent implements OnInit {
   modules: any;
+  images = ['../assets/appDev.jpg', '../assets/Design.jpg', '../assets/Vscode.jpg', '../assets/Vscode1.jpg', '../assets/Screens.png',
+    '../assets/Css.png', '../assets/Skills.jpeg', '../assets/node.jpg', '../assets/react.png', '../assets/flutter.png'];
 
   constructor(private menu: MenuController, private dataService: DataService) {
-
   }
 
   ngOnInit() {
@@ -21,6 +22,10 @@ export class ModulesComponent implements OnInit {
 
       }
     )
+  }
+
+  selectRandom(Array) {
+    return Array[Math.floor(Math.random() * Array.length)];
   }
 
 

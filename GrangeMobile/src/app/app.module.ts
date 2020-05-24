@@ -17,6 +17,7 @@ import { ModulesComponent } from './modules/modules.component';
 import { CampusesComponent } from './campuses/campuses.component';
 import { DataService } from './services/data.service';
 import { FlickrService } from './services/flickr.service';
+import { GoogleMapsComponent } from './campuses/google-maps/google-maps.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FlickrService } from './services/flickr.service';
     HomeComponent,
     NavComponent,
     ModulesComponent,
-    CampusesComponent
+    CampusesComponent,
+    GoogleMapsComponent
   ],
   entryComponents: [],
   imports: [
