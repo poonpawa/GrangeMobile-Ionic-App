@@ -15,12 +15,8 @@ export class DataService {
     return this.httpClient.get("http://server/json-data-modules.php");
   }
 
-  getLecturersData() {
-    return this.httpClient.get("http://classassignment/php/json-data-modules.php");
-  }
-
-  getStudentsData() {
-    return this.httpClient.get("http://classassignment/php/json-data-modules.php");
+  updateModuleData(id) {
+    return this.httpClient.get("http://server/update-module.php?id=" + id);
   }
 
 }

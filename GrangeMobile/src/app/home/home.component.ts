@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { FlickrService } from '../services/flickr.service';
+import { FirebaseUserModel } from "../modal/user.modal";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,7 @@ import { FlickrService } from '../services/flickr.service';
   styleUrls: ['home.component.scss'],
 })
 export class HomeComponent {
-
+  user: FirebaseUserModel = new FirebaseUserModel();
 
 
   sliderOne: any;
@@ -22,7 +24,8 @@ export class HomeComponent {
     autoplay: true
   };
 
-  constructor(private menu: MenuController, private flikrService: FlickrService) {
+  constructor(private menu: MenuController, private flikrService: FlickrService, private route: ActivatedRoute) {
+
     this.sliderOne =
     {
       isBeginningSlide: true,
@@ -32,6 +35,13 @@ export class HomeComponent {
   }
 
   ngOnInit() {
+    this.route.data.subscribe(routeData => {
+      let data = routeData["data"];
+      if (data) {
+        this.user = data;
+      }
+    });
+
     this.flikrService.getListofPhotos().subscribe(
       (data: any) => {
         this.sliderOne.slidesItems = data.slice(2, 9);

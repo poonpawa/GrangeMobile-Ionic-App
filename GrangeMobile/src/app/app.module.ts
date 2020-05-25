@@ -26,6 +26,10 @@ import { GoogleMapsComponent } from './campuses/google-maps/google-maps.componen
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { AuthService } from './services/auth.service';
+import { UserResolver } from "./services/user.resolver";
+import { AuthGuard } from "./services/auth.guard";
+import { UserService } from './services/user.service';
+
 
 @NgModule({
   declarations: [
@@ -58,6 +62,9 @@ import { AuthService } from './services/auth.service';
     DataService,
     FlickrService,
     AuthService,
+    UserService,
+    AuthGuard,
+    UserResolver,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

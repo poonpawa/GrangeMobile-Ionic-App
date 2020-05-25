@@ -53,6 +53,8 @@ if (mysqli_num_rows($result) > 0)
             $module["room"] =$row["room"];
             $module["lat"] =$row["lat"];
             $module["long"] =$row["long"];
+            $module["Enrolled"] =$row["Enrolled"];
+            
             
              	 	 	 	 	 	 	 	
 

@@ -5,6 +5,9 @@ import { ModulesComponent } from './modules/modules.component';
 import { CampusesComponent } from './campuses/campuses.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
+import { UserResolver } from "./services/user.resolver";
+import { AuthGuard } from "./services/auth.guard";
+
 
 const routes: Routes = [
   {
@@ -14,18 +17,21 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'app',
     children: [
       {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        resolve: { data: UserResolver },
       },
       {
         path: 'modules',

@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -29,8 +29,13 @@
         <strong>Due Date:</strong> {{module.dueDate}} <br>
         <strong>Location:</strong> {{module.room}} {{module.location}} <br>
         <strong>Website:</strong> {{module.website}} <br>
+        <span *ngIf='module.Enrolled == 0; else enrolled'>
+          <ion-button #notEnrolled size="small" strong="true" color="primary" (click)="enrol($event, module.moduleNo)">Enroll Now</ion-button>
+        </span>
+        <ng-template #enrolled>
+          <ion-button #enrolled size="small" strong="true" color="primary" disabled="true">Enrolled</ion-button>
+        </ng-template>
 
-        <ion-button size="small" strong="true" color="tertiary">Enroll Now</ion-button>
       </ion-card-content>
     </ion-card>
 

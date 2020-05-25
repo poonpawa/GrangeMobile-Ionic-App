@@ -5,6 +5,8 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
+	"build": "ionic-app-scripts build",
+    "serve": "ionic-app-scripts serve",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
