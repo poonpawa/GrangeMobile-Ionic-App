@@ -1,0 +1,19 @@
+.showBadge {
+    float: right;
+}
+
+.dontShow {
+    display: none;
+}
+
+#stackContent {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    padding: 5px 0px;
+}
+#iconSection ion-icon{
+    float: right;
+    width: 25px;
+    height: 35px;
+}

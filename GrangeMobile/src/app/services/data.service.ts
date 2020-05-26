@@ -19,4 +19,8 @@ export class DataService {
     return this.httpClient.get("http://server/update-module.php?id=" + id);
   }
 
+  getFacultyData() {
+    return this.httpClient.get("http://server/json-data-lecturers.php");
+  }
+
 }

@@ -29,7 +29,7 @@ import { AuthService } from './services/auth.service';
 import { UserResolver } from "./services/user.resolver";
 import { AuthGuard } from "./services/auth.guard";
 import { UserService } from './services/user.service';
-
+import { FacultyComponent } from './faculty/faculty.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import { UserService } from './services/user.service';
     CampusesComponent,
     GoogleMapsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FacultyComponent
   ],
   entryComponents: [],
   imports: [

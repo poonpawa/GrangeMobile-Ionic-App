@@ -5,6 +5,7 @@ import { ModulesComponent } from './modules/modules.component';
 import { CampusesComponent } from './campuses/campuses.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
+import { FacultyComponent } from './faculty/faculty.component';
 import { UserResolver } from "./services/user.resolver";
 import { AuthGuard } from "./services/auth.guard";
 
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         path: 'campuses',
         component: CampusesComponent
+      },
+      {
+        path: 'faculty',
+        component: FacultyComponent
       }
     ]
   }

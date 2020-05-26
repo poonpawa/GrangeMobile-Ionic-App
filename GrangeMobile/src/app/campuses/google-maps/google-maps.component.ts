@@ -9,7 +9,7 @@ export class GoogleMapsComponent implements OnInit, AfterViewInit {
   map: any;
 
   @ViewChild("map", { static: true }) MapEL: ElementRef;
-
+  google: object;
   constructor() { }
 
   ngOnInit() {

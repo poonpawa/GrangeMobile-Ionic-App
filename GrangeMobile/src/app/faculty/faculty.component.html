@@ -1,3 +1,32 @@
-<p>
-  faculty works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Faculties
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"><br>
+  <ion-item *ngFor="let lect of lecturer, let i = index">
+    <ion-avatar slot="start">
+      <img src={{avatar[i]}} [ngStyle]="{border: '2px solid burlywood'}">
+    </ion-avatar>
+
+    <div id="stackContent">
+      <ion-label>
+        <h2><strong>{{lect.firstName}} {{lect.lastName}}</strong></h2>
+        <h3>{{lect.email}}</h3>
+        <p>{{lect.staffNumber}}</p>
+      </ion-label>
+
+      <div id="iconSection">
+        <ion-badge color="success" [ngClass]="i%3 === 0? 'showBadge': 'dontShow'">{{i + 1}} min ago</ion-badge>
+        <ion-icon color="success" name="chatbubble" [ngClass]="i%3 !== 0? 'showBadge': 'dontShow'"></ion-icon>
+      </div>
+    </div>
+
+  </ion-item>
+</ion-content>

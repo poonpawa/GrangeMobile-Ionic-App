@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-faculty',
@@ -6,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./faculty.component.scss'],
 })
 export class FacultyComponent implements OnInit {
+  lecturer: any;
+  avatar = ['../../assets/Avatar1.png', '../../assets/Avatar2.png', '../../assets/Avatar3.png', '../../assets/Avatar4.png', '../../assets/Avatar5.png', '../../assets/Avatar6.png'];
+  constructor(private dataService: DataService) { }
 
-  constructor() { }
+  ngOnInit() {
+    this.getFaculties();
+  }
 
-  ngOnInit() {}
-
+  getFaculties() {
+    this.dataService.getFacultyData().subscribe(
+      (data: any) => {
+        this.lecturer = data.lecturers;
+      }
+    );
+  }
 }
